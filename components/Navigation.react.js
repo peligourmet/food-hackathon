@@ -5,7 +5,11 @@ module.exports = React.createClass({
 
     render: function () {
         var navItems = [
-            { path: 'home', displayName: 'Accueil' }
+            { path: 'home', displayName: 'Accueil' },
+            { path: 'login', displayName: 'Login' },
+            { path: 'annonces/create', displayName: 'Créer une annonce' },
+            { path: 'annonces', displayName: 'Voir les annonces' },
+            { path: 'payment/token', displayName: 'Payer' },
         ];
         return (
             <nav className="navigation">

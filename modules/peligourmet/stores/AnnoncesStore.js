@@ -3,7 +3,12 @@ var Store = require('nuclear-js').Store;
 
 module.exports = new Store({
     getInitialState: function () {
-        return toImmutable({});
+        return toImmutable({
+            "3": {
+                id: 3,
+                name: "Reblochon Fermier",
+            }
+        });
     },
 
     initialize: function () {
