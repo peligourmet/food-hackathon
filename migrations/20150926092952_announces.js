@@ -7,6 +7,8 @@ exports.up = function(knex, Promise) {
             table.string('farm_location');
             table.string('pickup_time');
             table.string('description');
+            table.string('pelicabname');
+            table.string('pelicabemail');
             table.dateTime('createdat');
         })
         .then(function () {

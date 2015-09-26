@@ -2,6 +2,9 @@ var React = require('react');
 var addons = require('react-addons');
 var Link = require('react-router').Link;
 
+var getters = require('../modules/peligourmet/getters');
+var reactor = require('../reactor')
+
 var Peligourmet = require('../modules/peligourmet');
 var actions = Peligourmet.actions;
 
@@ -15,6 +18,10 @@ module.exports = React.createClass({
 
     submit: function (e) {
         e.preventDefault();
+        var annonce = this.state;
+        var pelicab = reactor.evaluate(getters.loggedInUser);
+        annonce.pelicabname = pelicab.get('name');
+        annonce.pelicabemail = pelicab.get('email');
         actions.createAnnonce(this.state);
     },
 

@@ -24,7 +24,7 @@ module.exports = React.createClass({
                                 <img className="annonceImage" src="/images/icons/apple-organicfood-v1-codrops-wojciechzasina.svg"/>
                                 <div className="annonceContent">
                                     <p className="annonceName">{annonce.get('product_type')}</p>
-                                    <p className="annonceCity">Proposé par Marie</p>
+                                    <p className="annonceCity">Proposé par {annonce.get('pelicabname')}</p>
                                     <p className="annonceDate">{annonce.get('farm_location') + ', ' + annonce.get('pickup_time')}</p>
                                 </div>
                             </Link>
