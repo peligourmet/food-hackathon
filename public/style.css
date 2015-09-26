@@ -26,7 +26,6 @@ a {
 
 .header {
     background: #F2D9BB;
-    padding: 12px;
     overflow: hidden;
 }
 
@@ -49,7 +48,7 @@ a {
 
 .leftNavigation a {
     display: block;
-    padding: 12px;
+    padding: 15px;
 }
 
 .rightNavigation {
@@ -59,7 +58,7 @@ a {
 
 .rightNavigation a {
     display: block;
-    padding: 12px;
+    padding: 15px;
 }
 
 .pageHeader {
@@ -160,4 +159,63 @@ a {
 
 .annonceDescription p {
     margin-bottom: 12px;
+}
+
+form {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 24px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    width: 200px;
+    float: left;
+    text-align: right;
+    padding: 10px 24px;
+}
+
+input {
+    border: none;
+    padding: 8px;
+    border-bottom: 2px solid #ddd;
+    width: 400px;
+    margin-bottom: 24px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    float: left;
+}
+
+input:focus {
+    outline: none;
+    background: #ddd;
+}
+
+textarea {
+    border: none;
+    padding: 8px;
+    width: 400px;
+    margin-bottom: 24px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    float: left;
+    background: #ddd;
+    height: 150px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+form button {
+    margin-left: 200px;
+    display: block;
+    width: 400px;
+    background: #50BFA0;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    padding: 12px;
 }
