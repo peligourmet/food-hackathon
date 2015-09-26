@@ -6,6 +6,7 @@ var request = require('superagent-bluebird-promise');
 module.exports = {
     createAnnonce: createAnnonce,
     fetchAnnonces: fetchAnnonces,
+    login: login,
 };
 
 function createAnnonce(annonce) {
@@ -35,4 +36,8 @@ function fetchAnnonces() {
                 console.log(error);
             }
         );
+}
+
+function login(user) {
+    reactor.dispatch(actionTypes.LOGIN, user);
 }
