@@ -10,7 +10,7 @@ module.exports = React.createClass({
                     Etiam euismod malesuada cursus. Suspendisse vel tincidunt quam, porta sollicitudin enim.
                 </div>
                 <div className="homePanel-cta">
-                    <Link to="annonces/create">Je suis un pelicab</Link>
+                    <Link to="login">Je suis un pelicab</Link>
                 </div>
             </div>
         );
