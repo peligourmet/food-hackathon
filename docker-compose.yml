@@ -1,0 +1,10 @@
+web:
+  build: .
+  command: nodemon --harmony server.js
+  working_dir: /var/www
+  volumes:
+    - .:/var/www/
+  ports:
+   - "3000:3000"
+  env_file:
+    - ./envvars
