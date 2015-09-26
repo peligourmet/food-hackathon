@@ -15,7 +15,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="main">
                     <div className="annonceDescription">
-                        <p>{annonce.get('description')}</p>
+                        <p>"{annonce.get('description')}"</p>
                         <p>Agnès D.</p>
                     </div>
 
