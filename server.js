@@ -7,6 +7,7 @@ var bodyParser = require('koa-bodyparser');
 var knexfile = require('./knexfile');
 var knex = require('knex')(knexfile);
 var _ = require('lodash');
+var uuid = require('uuid');
 
 var app = koa();
 
@@ -21,7 +22,10 @@ app.use(views('views', {
 app.use(bodyParser());
 
 router.get('/', index);
-router.post('/accounts', createAccount);
+
+router.post('/api/accounts', createAccount);
+router.post('/api/announces', createAnnounce);
+router.get('/api/announces', listAnnounces);
 app.use(router.routes());
 
 function *index() {
@@ -36,6 +40,24 @@ function *createAccount() {
     }).into('accounts');
     this.status = 201;
     this.body = "OK";
+}
+
+function *createAnnounce() {
+    var announce = this.request.body;
+    announce.uuid = uuid.v4();
+    announce.createdat = new Date();
+    yield knex
+        .insert(announce)
+        .into('announces');
+    this.status = 201;
+    this.body = "OK";
+}
+
+function *listAnnounces() {
+    var announces = yield knex.select('*')
+        .from('announces')
+        .orderBy('createdat', 'DESC')
+    this.body = announces;
 }
 
 app.listen(process.env.PORT || 3000);

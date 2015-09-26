@@ -2,7 +2,7 @@ exports.up = function(knex, Promise) {
     return knex.schema
         .createTable('accounts', function (table) {
             table.string('email');
-            table.date('createdat');
+            table.dateTime('createdat');
         })
         .then(function () {
             console.log('the "accounts" table has been created');
