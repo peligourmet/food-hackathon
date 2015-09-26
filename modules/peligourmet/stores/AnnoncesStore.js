@@ -11,35 +11,35 @@ module.exports = new Store({
                 uuid: 3,
                 product_type: "Pommes bio",
                 farm_location: "Bordeaux",
-                pickup_time: "Lundi 3 octobre",
+                pickup_time: "lundi 3 octobre",
                 description: "Je vais chez mes parents ce week-end, je peux ramener quelques kilos de pommes. Je ne sais pas trop quelle est la variété mais elles sont très bonnes."
             },
             "4": {
                 uuid: 4,
                 product_type: "Pommes bio",
                 farm_location: "Bordeaux",
-                pickup_time: "Lundi 3 octobre",
+                pickup_time: "lundi 3 octobre",
                 description: "Je vais chez mes parents ce week-end, je peux ramener quelques kilos de pommes. Je ne sais pas trop quelle est la variété mais elles sont très bonnes."
             },
             "5": {
                 uuid: 5,
                 product_type: "Pommes bio",
                 farm_location: "Bordeaux",
-                pickup_time: "Lundi 3 octobre",
+                pickup_time: "lundi 3 octobre",
                 description: "Je vais chez mes parents ce week-end, je peux ramener quelques kilos de pommes. Je ne sais pas trop quelle est la variété mais elles sont très bonnes."
             },
             "6": {
                 uuid: 6,
                 product_type: "Pommes bio",
                 farm_location: "Bordeaux",
-                pickup_time: "Lundi 3 octobre",
+                pickup_time: "lundi 3 octobre",
                 description: "Je vais chez mes parents ce week-end, je peux ramener quelques kilos de pommes. Je ne sais pas trop quelle est la variété mais elles sont très bonnes."
             },
             "7": {
                 uuid: 7,
                 product_type: "Pommes bio",
                 farm_location: "Bordeaux",
-                pickup_time: "Lundi 3 octobre",
+                pickup_time: "lundi 3 octobre",
                 description: "Je vais chez mes parents ce week-end, je peux ramener quelques kilos de pommes. Je ne sais pas trop quelle est la variété mais elles sont très bonnes."
             }
         });
