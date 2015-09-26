@@ -8,6 +8,8 @@ PeligourmetModule.register(reactor);
 var App = require('./components/App.react');
 var Routes = require('./components/Routes.react');
 
+PeligourmetModule.actions.fetchAnnonces();
+
 Router.run(Routes, Router.HistoryLocation, function (Root) {
     React.render(<Root />, document.getElementById('app'));
 });

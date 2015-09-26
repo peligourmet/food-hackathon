@@ -11,11 +11,11 @@ module.exports = React.createClass({
             <div>
                 <div className="pageHeader">
                     {annonce.get('product_type')}
-                    <p className="header-details">A récupérer à <b>Bordeaux</b> le <b>lundi 12 septembre</b></p>
+                    <p className="header-details">A récupérer à <b>{annonce.get('pickup_location')}</b> le <b>{annonce.get('pickup_time')}</b></p>
                 </div>
                 <div className="main">
                     <div className="annonceDescription">
-                        <p>"Je vais chez mes parents ce week-end, je peux ramener quelques kilos de pommes. Je ne sais pas trop quelle est la variété mais elles sont très bonnes."</p>
+                        <p>{annonce.get('description')}</p>
                         <p>Agnès D.</p>
                     </div>
 
