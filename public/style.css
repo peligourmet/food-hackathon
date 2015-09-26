@@ -48,7 +48,9 @@ a {
 
 .leftNavigation a {
     display: block;
-    padding: 15px;
+    padding: 16px;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .rightNavigation {
@@ -58,11 +60,13 @@ a {
 
 .rightNavigation a {
     display: block;
-    padding: 15px;
+    padding: 16px;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .pageHeader {
-    background: #3B8C8C;
+    background: #41A693;
     color: #F2F2F2;
     padding: 40px;
     text-align: center;
@@ -218,4 +222,34 @@ form button {
     color: #FFF;
     font-size: 18px;
     padding: 12px;
+}
+
+.homePanel {
+    background: #41A693;
+    color: #fff;
+    height: 500px;
+    padding: 150px;
+    position: relative;
+    text-align: center;
+}
+
+.homePanel-text {
+    line-height: 1.5;
+    font-size: 18px;
+    margin-bottom: 48px;
+}
+
+.homePanel-cta {
+    border: 1px solid #fff;
+    color: #fff;
+    display: inline-block;
+    padding: 12px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.homePanel-cta:hover {
+    background: #fff;
+    color: #41A693;
 }
