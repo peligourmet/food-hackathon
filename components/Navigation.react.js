@@ -4,25 +4,23 @@ var Link = require('react-router').Link;
 module.exports = React.createClass({
 
     render: function () {
-        var navItems = [
-            { path: 'home', displayName: 'Accueil' },
-            { path: 'login', displayName: 'Login' },
-            { path: 'annonces/create', displayName: 'Créer une annonce' },
-            { path: 'annonces', displayName: 'Voir les annonces' },
-            { path: 'payment/token', displayName: 'Payer' },
-        ];
         return (
-            <nav className="navigation">
-                <ul>
-                    {navItems.map(function (navItem) {
-                        return (
-                            <li key={navItem.path}>
-                                <Link to={navItem.path}>{navItem.displayName}</Link>
-                            </li>
-                        );
-                    })}
+            <div className="header">
+                <span className="logo">Logo</span>
+                <ul className="leftNavigation">
+                    <li>
+                        <Link to="annonces">Les annonces</Link>
+                    </li>
+                    <li>
+                        <Link to="annonces/create">Poster une annonce</Link>
+                    </li>
                 </ul>
-            </nav>
+                <ul className="rightNavigation">
+                    <li>
+                        <Link to="login">Login</Link>
+                    </li>
+                </ul>
+            </div>
         );
     }
 });

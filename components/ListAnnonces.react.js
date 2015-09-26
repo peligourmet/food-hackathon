@@ -16,12 +16,21 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div>
-                <div>List annonces</div>
-                {this.state.annonces.map(function (annonce) {
-                    return (
-                        <Link key={annonce.get('id')} to={'annonces/:id'} params={{id: annonce.get('id')}}>{annonce.get('name')}</Link>
-                    );
-                })}
+                <div className="pageHeader">Les annonces</div>
+                <div className="main">
+                    {this.state.annonces.map(function (annonce) {
+                        return (
+                            <Link className="annonce" key={annonce.get('id')} to={'annonces/:id'} params={{id: annonce.get('id')}}>
+                                <img className="annonceImage" src="/images/icons/apple-organicfood-v1-codrops-wojciechzasina.svg"/>
+                                <div className="annonceContent">
+                                    <p className="annonceName">{annonce.get('name')}</p>
+                                    <p className="annonceCity">{annonce.get('city')}</p>
+                                    <p className="annonceDate">{annonce.get('date')}</p>
+                                </div>
+                            </Link>
+                        );
+                    })}
+                </div>
             </div>
         );
     }

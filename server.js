@@ -26,6 +26,8 @@ app.use(views('views', {
 app.use(bodyParser());
 
 router.get('/', index);
+router.get('/annonces', index);
+
 
 router.post('/api/accounts', createAccount);
 router.post('/api/announces', createAnnounce);
