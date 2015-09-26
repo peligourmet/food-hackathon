@@ -1,3 +1,4 @@
 node_modules
 public/build.js
 public/build.map.json
+secret-envvars
