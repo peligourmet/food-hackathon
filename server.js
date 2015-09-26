@@ -23,6 +23,7 @@ app.use(bodyParser());
 
 router.get('/', index);
 router.get('/annonces', index);
+router.get('/annonces/:id', index);
 
 
 router.post('/api/accounts', createAccount);

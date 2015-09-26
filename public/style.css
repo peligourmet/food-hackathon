@@ -1,9 +1,9 @@
 /*
-    #F2F2F2
-    #F29E38
-    #F28F38
-    #732509
-    #26110D
+    #F2D9BB
+    #A6927B
+    #50BFA0
+    #41A693
+    #3B8C8C
 
  */
 
@@ -25,7 +25,7 @@ a {
 }
 
 .header {
-    background: #F2F2F2;
+    background: #F2D9BB;
     padding: 12px;
     overflow: hidden;
 }
@@ -41,7 +41,6 @@ a {
 .leftNavigation {
     list-style: none;
     float: left;
-
 }
 
 .leftNavigation li {
@@ -64,22 +63,23 @@ a {
 }
 
 .pageHeader {
-    background: #26110D;
+    background: #3B8C8C;
     color: #F2F2F2;
-    padding: 60px;
+    padding: 40px;
     text-align: center;
-    font-size: 30px;
+    font-size: 45px;
     font-weight: lighter;
+    font-family: "Amatic SC";
 }
 
 .main {
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
     padding-top: 24px;
+    padding-bottom: 120px;
 }
 
 .annonce {
-    /*background: green;*/
     display: block;
     position: relative;
     min-height: 50px;
@@ -93,7 +93,7 @@ a {
     position: absolute;
     left: 0;
     top: 0;
-    background: #F28F38;
+    background: #50BFA0;
 }
 
 .annonceContent {
@@ -103,4 +103,61 @@ a {
 .annonceName {
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.header-details {
+    font-family: "Open Sans";
+    font-size: 14px;
+    opacity: .7;
+    margin-top: 8px;
+
+    b {
+        font-weight: normal;
+    }
+}
+
+.orderSummary {
+    padding: 12px 0;
+    font-style: italic;
+    border-top: 1px solid #ccc;
+    width: 400px;
+}
+
+.buyBox {
+    width: 300px;
+}
+
+.buyBox select {
+    display: block;
+    width: 50%;
+    float: left;
+    background: #DDD;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    height: 36px;
+}
+
+.buyBox button {
+    float: left;
+    width: 50%;
+    border: 0;
+    background: #50BFA0;
+    color: #FFF;
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 36px;
+    margin-left: -100px;
+    border-radius: 0 5px 5px 0;
+}
+
+.annonceDescription {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.annonceDescription p {
+    margin-bottom: 12px;
 }
