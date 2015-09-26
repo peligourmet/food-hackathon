@@ -39,7 +39,7 @@ module.exports = React.createClass({
                         <p>
                             <label>Dites-en plus</label><textarea valueLink={this.linkState('description')} />
                         </p>
-                        <input onClick={this.submit} type='submit' value="Publier l'annonce" />
+                        <button onClick={this.submit} type='submit'>Publier</button>
                     </form>
                 </div>
             </div>
