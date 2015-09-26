@@ -57,7 +57,7 @@ function *createAnnounce() {
         .insert(announce)
         .into('announces');
     this.status = 201;
-    this.body = "OK";
+    this.body = announce;
 }
 
 function *listAnnounces() {

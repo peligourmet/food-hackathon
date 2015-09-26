@@ -5,7 +5,8 @@ exports.up = function(knex, Promise) {
             table.string('product_type');
             table.string('pickup_location');
             table.string('farm_location');
-            table.dateTime('pickup_time');
+            table.string('pickup_time');
+            table.string('description');
             table.dateTime('createdat');
         })
         .then(function () {

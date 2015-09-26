@@ -17,7 +17,7 @@ module.exports = (
         <Route name="login" handler={Login}/>
         <Route name="annonces" handler={ListAnnonces}/>
         <Route name="annonces/create" handler={CreateAnnonce} />
-        <Route name="annonces/:id" handler={ShowAnnonce} />
+        <Route name="annonces/:uuid" handler={ShowAnnonce} />
         <Route name="payment/token" handler={Payment} />
     </Route>
 );
