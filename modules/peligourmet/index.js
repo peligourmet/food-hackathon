@@ -2,6 +2,7 @@ var getters = require('./getters');
 var actions = require('./actions');
 
 var AnnoncesStore = require('./stores/AnnoncesStore');
+var LoggedInUserStore = require('./stores/LoggedInUserStore');
 
 
 module.exports = {
@@ -10,6 +11,7 @@ module.exports = {
     register: function(reactor) {
         reactor.registerStores({
             'annonces': AnnoncesStore,
+            'loggedInUser': LoggedInUserStore,
         });
     }
 };

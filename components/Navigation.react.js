@@ -1,9 +1,24 @@
 var React = require('react');
 var Link = require('react-router').Link;
+var reactor = require('../reactor');
+var getters = require('../modules/peligourmet/getters');
 
 module.exports = React.createClass({
+    mixins: [reactor.ReactMixin],
+
+    getDataBindings: function () {
+        return {
+            user: getters.loggedInUser,
+        }
+    },
 
     render: function () {
+        var loginButton;
+        if (null === this.state.user) {
+            loginButton = <Link to="login">Se connecter</Link>;
+        } else {
+            loginButton = <a>{this.state.user.get('name')}</a>;
+        }
         return (
             <div className="header">
                 <span className="logo">Logo</span>
@@ -17,7 +32,7 @@ module.exports = React.createClass({
                 </ul>
                 <ul className="rightNavigation">
                     <li>
-                        <Link to="login">Login</Link>
+                        {loginButton}
                     </li>
                 </ul>
             </div>

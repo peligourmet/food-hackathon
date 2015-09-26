@@ -1,4 +1,5 @@
 exports.annonces = ['annonces'];
+exports.loggedInUser = ['loggedInUser'];
 exports.getAnnonceById = function (id) {
     return [
         ['annonces'],
