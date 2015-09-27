@@ -28,7 +28,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <div className="pageHeader">
-                    Partager mon annonce
+                    Partager à mon réseau
                     <p className="header-details">{annonce.get('product_type')}</p>
                 </div>
                 <div className="main">

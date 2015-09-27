@@ -15,7 +15,7 @@ module.exports = React.createClass({
     render: function () {
         var loginButton;
         if (null === this.state.user) {
-            loginButton = <Link to="login">Se connecter</Link>;
+            loginButton = <Link to="login">S'inscrire</Link>;
         } else {
             loginButton = <a>{this.state.user.get('name')}</a>;
         }

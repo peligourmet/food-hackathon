@@ -7,11 +7,12 @@ module.exports = React.createClass({
         return (
             <div className="homePanel">
                 <div className="homePanel-text">
-                    Etiam euismod malesuada cursus. Suspendisse vel tincidunt quam, porta sollicitudin enim.
+                    Vous avez dénichez des produits régionaux et vous voulez partagez vos découvertes gastronomiques ?
                 </div>
                 <div className="homePanel-cta">
                     <Link to="login">Je suis un pelicab</Link>
                 </div>
+                <img className="homePanel-image" src="/images/illustratio-peli-droite.png"/>
             </div>
         );
     }

@@ -31,7 +31,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div>
-                <div className="pageHeader">Nouvelle Annonce</div>
+                <div className="pageHeader">Publier une annonce</div>
                 <div className="main">
                     <form onChange={this.onChange}>
                         <p>

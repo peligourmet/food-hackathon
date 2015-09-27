@@ -22,7 +22,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div>
-                <div className="pageHeader">S'enregister</div>
+                <div className="pageHeader">Inscription</div>
                 <div className="main">
                     <form>
                         <p>
@@ -31,7 +31,7 @@ module.exports = React.createClass({
                         <p>
                             <label>Email</label><input type='text' valueLink={this.linkState('email')} />
                         </p>
-                        <button onClick={this.submit} type='submit'>S'enregister</button>
+                        <button onClick={this.submit} type='submit'>Continuer et créer une annonce</button>
                     </form>
                 </div>
             </div>
