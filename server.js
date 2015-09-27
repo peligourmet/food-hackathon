@@ -6,12 +6,12 @@ var serve = require('koa-static');
 var bodyParser = require('koa-bodyparser');
 var knexfile = require('./knexfile');
 var knex = require('knex')(knexfile);
-var uuid = require('uuid');
 var mailgun = require('mailgun-js')({
     apiKey: 'key-06932b00494fc1a8f0949d56e266a6fe',
     domain: 'sandbox85bfb808d09e4e84aed1eef80802a2fc.mailgun.org'
 });
 var _ = require('underscore');
+var crypto = require('crypto');
 
 var app = koa();
 
@@ -27,7 +27,7 @@ app.use(bodyParser());
 
 router.get('/', index);
 router.get('/annonces', index);
-router.get('/annonces/:id', index);
+router.get('/annonces/:id', showAnnounce);
 router.get('/annonces/:id/publish', index);
 router.get('/annonces/create', index);
 router.get('/login', index);
@@ -44,6 +44,14 @@ function *index() {
     yield this.render('index');
 }
 
+function *showAnnounce() {
+    var announce = yield knex.select('*')
+        .from('announces')
+        .where({uuid: this.params.id})
+
+    yield this.render('index', { context: JSON.stringify(announce) });
+}
+
 function *createAccount() {
     var email = this.request.body.email;
     yield knex.insert({
@@ -56,7 +64,6 @@ function *createAccount() {
 
 function *createAnnounce() {
     var announce = this.request.body;
-    announce.uuid = uuid.v4();
     announce.createdat = new Date();
     yield knex
         .insert(announce)
@@ -76,15 +83,30 @@ function *shareAnnounce() {
     var announceUuid = this.request.body.announceUuid;
     var emails = this.request.body.emails;
     var message = this.request.body.message;
-    var url = process.env.APP_URL + '/annonce/' + announceUuid;
+
+    var announce = yield knex.select('pelicabname', 'pelicabemail')
+        .from('announces')
+        .where({uuid: announceUuid})
+        .then(function (rows) {
+            return _.map(rows, function (row) {
+                return {pelicabname: row.pelicabname, pelicabemail: row.pelicabemail};
+            })[0];
+        });
+
+    var shasum = crypto.createHash('sha1');
+    shasum.update(message);
+    var token = shasum.digest('hex');
+    var url = process.env.APP_URL + '/annonces/' + announceUuid + '?token=' + token;
+
     var compiledTemplate = _.template(
-        "Bonjour,\n\nUne annonce Peligourmet viens d'être paratgée avec vous.\n\nVoici le message de l'annonceur:\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
+        "Bonjour,\n\n<%= pelicabname %> vient de partager une annonce avec vous.\n\nVoici son message :\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
     );
+
     var email = {
         from: 'Peligourmet <peligourmetparis@gmail.com>',
         to: emails.join(','),
         subject: 'Nouvelle annonce',
-        text: compiledTemplate({ message: message, url: url }),
+        text: compiledTemplate({ message: message, url: url, pelicabname: announce.pelicabname}),
     };
     mailgun.messages().send(email, function (error, info) {
         if (error) {

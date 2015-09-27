@@ -1,6 +1,8 @@
 var React = require('react');
+var Router = require('react-router');
 var addons = require('react-addons');
 var Link = require('react-router').Link;
+var uuid = require('uuid');
 
 var getters = require('../modules/peligourmet/getters');
 var reactor = require('../reactor')
@@ -9,8 +11,7 @@ var Peligourmet = require('../modules/peligourmet');
 var actions = Peligourmet.actions;
 
 module.exports = React.createClass({
-
-    mixins: [addons.LinkedStateMixin],
+    mixins: [addons.LinkedStateMixin, Router.Navigation ],
 
     getInitialState: function () {
         return {};
@@ -22,7 +23,9 @@ module.exports = React.createClass({
         var pelicab = reactor.evaluate(getters.loggedInUser);
         annonce.pelicabname = pelicab.get('name');
         annonce.pelicabemail = pelicab.get('email');
+        annonce. uuid = uuid.v4();
         actions.createAnnonce(this.state);
+        this.transitionTo('annonces/:uuid/publish', {uuid: annonce.uuid});
     },
 
     render: function () {
