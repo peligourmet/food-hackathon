@@ -21,7 +21,9 @@ module.exports = React.createClass({
         }
         return (
             <div className="header">
-                <span className="logo">Logo</span>
+                <Link to="home" className="logo">
+                    <img src="/images/peligourmet-logo.svg"/>
+                </Link>
                 <ul className="leftNavigation">
                     <li>
                         <Link to="annonces">Les annonces</Link>
