@@ -11,7 +11,9 @@ module.exports = React.createClass({
     mixins: [addons.LinkedStateMixin, Router.Navigation ],
 
     getInitialState: function () {
-        return {};
+        return {
+            message: "Je ramène de la confiture de chez ma grand-mère, t'en veux ?",
+        };
     },
 
     submit: function (e) {
