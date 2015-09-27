@@ -11,6 +11,7 @@ var mailgun = require('mailgun-js')({
     domain: 'sandbox85bfb808d09e4e84aed1eef80802a2fc.mailgun.org'
 });
 var _ = require('underscore');
+var crypto = require('crypto');
 
 var app = koa();
 
@@ -75,7 +76,10 @@ function *shareAnnounce() {
     console.log('uuid', announceUuid);
     var emails = this.request.body.emails;
     var message = this.request.body.message;
-    var url = process.env.APP_URL + '/annonces/' + announceUuid;
+    var shasum = crypto.createHash('sha1');
+    shasum.update(message);
+    var token = shasum.digest('hex');
+    var url = process.env.APP_URL + '/annonces/' + announceUuid + '?token=' + token;
     var compiledTemplate = _.template(
         "Bonjour,\n\nUne annonce Peligourmet viens d'être paratgée avec vous.\n\nVoici le message de l'annonceur:\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
     );
