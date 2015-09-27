@@ -256,3 +256,15 @@ form button {
     background: #fff;
     color: #41A693;
 }
+
+form .quantity {
+    width: 50px;
+}
+
+form .quantity-unit {
+    width: 130px;
+}
+
+form p {
+    clear: both;
+}

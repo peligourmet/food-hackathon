@@ -17,7 +17,13 @@ module.exports = React.createClass({
                     <div className="annonceDescription">
                         <p>"{annonce.get('description')}"</p>
                         <p>{annonce.get('pelicabname')}</p>
+                    <div className="quantityBox">
+                        <div>Quantité disponible</div>
+                        <span className="quantity">{annonce.get('quantity')}</span>
+                        <span className="quantity-unit">{annonce.get('quantityunit')}</span>
                     </div>
+                    </div>
+
 
                     <p className="orderSummary">Jean-Baptiste C. a réservé 2 kilos</p>
                     <p className="orderSummary">Kim Laï T. a réservé 4 kilos</p>

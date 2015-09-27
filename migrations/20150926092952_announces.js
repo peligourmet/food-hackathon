@@ -9,6 +9,8 @@ exports.up = function(knex, Promise) {
             table.string('description');
             table.string('pelicabname');
             table.string('pelicabemail');
+            table.integer('quantity');
+            table.string('quantityunit');
             table.dateTime('createdat');
         })
         .then(function () {

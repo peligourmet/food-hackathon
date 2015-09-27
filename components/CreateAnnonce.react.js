@@ -44,6 +44,10 @@ module.exports = React.createClass({
                             <label>Date de retrait</label><input type='text' valueLink={this.linkState('pickup_time')} />
                         </p>
                         <p>
+                            <label>Quantité</label><input className="quantity" type='text' valueLink={this.linkState('quantity')} />
+                            <input className="quantity-unit" type='text' valueLink={this.linkState('quantityunit')} />
+                        </p>
+                        <p>
                             <label>Dites-en plus</label><textarea valueLink={this.linkState('description')} />
                         </p>
                         <button onClick={this.submit} type='submit'>Publier</button>
