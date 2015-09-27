@@ -45,9 +45,7 @@ function *index() {
 }
 
 function *showAnnounce() {
-    var announce = yield knex.select('*')
-        .from('announces')
-        .where({uuid: this.params.id})
+    var announce = [];
 
     yield this.render('index', { context: JSON.stringify(announce) });
 }
