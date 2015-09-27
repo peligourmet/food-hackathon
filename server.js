@@ -78,7 +78,7 @@ function *shareAnnounce() {
     var message = this.request.body.message;
     var url = process.env.APP_URL + '/annonce/' + announceUuid;
     var compiledTemplate = _.template(
-        "Bonjour,\n\nUne announce Peligourmet viens d'être paratgée avec vous.\n\nVoici le message de l'annonceur:\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
+        "Bonjour,\n\nUne annonce Peligourmet viens d'être paratgée avec vous.\n\nVoici le message de l'annonceur:\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
     );
     var email = {
         from: 'Peligourmet <peligourmetparis@gmail.com>',
