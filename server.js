@@ -45,11 +45,13 @@ function *index() {
 }
 
 function *showAnnounce() {
-    var announce = yield knex.select('*')
+    var announces = yield knex.select('*')
         .from('announces')
         .where({uuid: this.params.id})
 
-    yield this.render('index', { context: JSON.stringify(announce) });
+    var token = this.query.token;
+
+    yield this.render('index', { context: JSON.stringify({announces: announces, token: token}) });
 }
 
 function *createAccount() {

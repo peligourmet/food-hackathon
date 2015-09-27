@@ -5,8 +5,44 @@ var reactor = require('../reactor');
 
 module.exports = React.createClass({
 
+    getInitialState: function () {
+        return {showPayNow: false};
+    },
+
+    onPayNow: function (e) {
+        this.setState({showPayNow: e.target.checked});
+    },
+
+    renderPayForm: function () {
+        if (typeof window.token === 'undefined' || this.state.showPayNow === true) {
+            return (
+                <div>
+                    <p>
+                        <label>Numéro de carte bancaire</label>
+                        <input type="text"/>
+                    </p>
+                    <p>
+                        <label>Date d expiration</label>
+                        <input type="text"/>
+                    </p>
+                    <p>
+                        <label>CCV</label>
+                        <input type="text"/>
+                    </p>
+                </div>
+            );
+        }
+        return <div></div>;
+    },
+
     render: function () {
+        console.log(this.state);
+        token = window.token;
         var annonce = reactor.evaluate(getters.getAnnonceById(this.props.params.uuid));
+        var payNow;
+        if (typeof token !== 'undefined') {
+            payNow = <p><label>Payer maintenant</label><input type="checkbox" onChange={this.onPayNow}/></p>
+        }
         return (
             <div>
                 <div className="pageHeader">
@@ -35,22 +71,8 @@ module.exports = React.createClass({
                                 <option>5 {annonce.get('quantityunit')}</option>
                             </select>
                         </p>
-                        <p>
-                            <label>Payer maintenant</label>
-                            <input type="checkbox"/>
-                        </p>
-                        <p>
-                            <label>Numéro de carte bancaire</label>
-                            <input type="text"/>
-                        </p>
-                        <p>
-                            <label>Date d expiration</label>
-                            <input type="text"/>
-                        </p>
-                        <p>
-                            <label>CCV</label>
-                            <input type="text"/>
-                        </p>
+                        {payNow}
+                        {this.renderPayForm()}
                         <p>
                             <button>Réserver</button>
                         </p>
