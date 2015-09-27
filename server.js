@@ -28,6 +28,10 @@ app.use(bodyParser());
 router.get('/', index);
 router.get('/annonces', index);
 router.get('/annonces/:id', index);
+router.get('/annonces/:id/publish', index);
+router.get('/annonces/create', index);
+router.get('/login', index);
+router.get('/payment/token', index);
 
 
 router.post('/api/accounts', createAccount);

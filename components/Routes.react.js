@@ -10,6 +10,7 @@ var ListAnnonces = require('./ListAnnonces.react');
 var CreateAnnonce = require('./CreateAnnonce.react');
 var ShowAnnonce = require('./ShowAnnonce.react');
 var Payment = require('./Payment.react');
+var Publish = require('./Publish.react');
 
 module.exports = (
     <Route handler={App}>
@@ -19,5 +20,6 @@ module.exports = (
         <Route name="annonces/create" handler={CreateAnnonce} />
         <Route name="annonces/:uuid" handler={ShowAnnonce} />
         <Route name="payment/token" handler={Payment} />
+        <Route name="annonces/:uuid/publish" handler={Publish} />
     </Route>
 );
