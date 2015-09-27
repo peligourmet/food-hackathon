@@ -7,7 +7,7 @@ module.exports = React.createClass({
         return (
             <div className="homePanel">
                 <div className="homePanel-text">
-                    Vous avez déniché des produits régionaux et vous voulez partagez vos découvertes gastronomiques ?
+                    Vous avez déniché des produits régionaux et vous voulez partager vos découvertes gastronomiques ?
                 </div>
                 <div className="homePanel-cta">
                     <Link to="login">Je suis un pelicab</Link>
