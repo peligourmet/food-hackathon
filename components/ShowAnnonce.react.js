@@ -19,6 +19,43 @@ module.exports = React.createClass({
                         <p>{annonce.get('pelicabname')}</p>
                     </div>
 
+                    <h2>Réserver</h2>
+                    <form className="bookingForm">
+                        <p>
+                            <label>Nom</label>
+                            <input type="text"/>
+                        </p>
+                        <p>
+                            <label>Quantité</label>
+                            <select>
+                                <option>1 {annonce.get('quantityunit')}</option>
+                                <option>2 {annonce.get('quantityunit')}</option>
+                                <option>3 {annonce.get('quantityunit')}</option>
+                                <option>4 {annonce.get('quantityunit')}</option>
+                                <option>5 {annonce.get('quantityunit')}</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label>Payer maintenant</label>
+                            <input type="checkbox"/>
+                        </p>
+                        <p>
+                            <label>Numéro de carte bancaire</label>
+                            <input type="text"/>
+                        </p>
+                        <p>
+                            <label>Date d expiration</label>
+                            <input type="text"/>
+                        </p>
+                        <p>
+                            <label>CCV</label>
+                            <input type="text"/>
+                        </p>
+                        <p>
+                            <button>Réserver</button>
+                        </p>
+                    </form>
+
                     <div className="col">
                         <p className="orderSummary">Jean-Baptiste C. a réservé 2 {annonce.get('quantityunit')}</p>
                         <p className="orderSummary">Kim Laï T. a réservé 4 {annonce.get('quantityunit')}</p>
