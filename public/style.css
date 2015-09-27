@@ -201,7 +201,7 @@ label {
     padding: 10px 24px;
 }
 
-input {
+input[type="text"] {
     border: none;
     padding: 8px;
     border-bottom: 2px solid #ddd;
@@ -212,7 +212,27 @@ input {
     float: left;
 }
 
-input:focus {
+input[type="text"]:focus {
+    outline: none;
+    background: #ddd;
+}
+
+input[type="checkbox"] {
+    height: 60px;
+}
+
+form select {
+    border: none;
+    padding: 8px;
+    border-bottom: 2px solid #ddd;
+    width: 400px;
+    margin-bottom: 24px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    float: left;
+}
+
+form select:focus {
     outline: none;
     background: #ddd;
 }
@@ -290,8 +310,29 @@ form p {
     width: 50%;
     float: left;
     padding: 0 30px;
+    display: none;
 }
 
 .availability {
     margin-bottom: 12px;
 }
+
+.bookingForm {
+    clear: both;
+    width: 100%;
+}
+
+.bookingForm label {
+    text-align: left;
+    padding-left: 0;
+    width: 100px;
+}
+
+.bookingForm button {
+    margin-left: 100px;
+}
+
+h2 {
+    font-family: "Dosis"
+}
+
