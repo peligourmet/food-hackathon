@@ -10,7 +10,6 @@ var Routes = require('./components/Routes.react');
 
 var context = JSON.parse(document.getElementById('context').textContent);
 PeligourmetModule.actions.initializeAnnonces(context.announces);
-window.token = context.token;
 PeligourmetModule.actions.fetchAnnonces();
 
 Router.run(Routes, Router.HistoryLocation, function (Root) {

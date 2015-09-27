@@ -36,8 +36,7 @@ module.exports = React.createClass({
     },
 
     render: function () {
-        console.log(this.state);
-        token = window.token;
+        token = this.props.query.token;
         var annonce = reactor.evaluate(getters.getAnnonceById(this.props.params.uuid));
         var payNow;
         if (typeof token !== 'undefined') {

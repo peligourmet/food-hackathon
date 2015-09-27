@@ -49,9 +49,7 @@ function *showAnnounce() {
         .from('announces')
         .where({uuid: this.params.id})
 
-    var token = this.query.token;
-
-    yield this.render('index', { context: JSON.stringify({announces: announces, token: token}) });
+    yield this.render('index', { context: JSON.stringify({announces: announces}) });
 }
 
 function *createAccount() {
