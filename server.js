@@ -6,7 +6,6 @@ var serve = require('koa-static');
 var bodyParser = require('koa-bodyparser');
 var knexfile = require('./knexfile');
 var knex = require('knex')(knexfile);
-var uuid = require('uuid');
 var mailgun = require('mailgun-js')({
     apiKey: 'key-06932b00494fc1a8f0949d56e266a6fe',
     domain: 'sandbox85bfb808d09e4e84aed1eef80802a2fc.mailgun.org'
@@ -56,7 +55,6 @@ function *createAccount() {
 
 function *createAnnounce() {
     var announce = this.request.body;
-    announce.uuid = uuid.v4();
     announce.createdat = new Date();
     yield knex
         .insert(announce)
@@ -74,9 +72,10 @@ function *listAnnounces() {
 
 function *shareAnnounce() {
     var announceUuid = this.request.body.announceUuid;
+    console.log('uuid', announceUuid);
     var emails = this.request.body.emails;
     var message = this.request.body.message;
-    var url = process.env.APP_URL + '/annonce/' + announceUuid;
+    var url = process.env.APP_URL + '/annonces/' + announceUuid;
     var compiledTemplate = _.template(
         "Bonjour,\n\nUne annonce Peligourmet viens d'être paratgée avec vous.\n\nVoici le message de l'annonceur:\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
     );
