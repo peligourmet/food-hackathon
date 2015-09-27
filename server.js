@@ -28,7 +28,7 @@ app.use(bodyParser());
 router.get('/', index);
 router.get('/annonces', index);
 router.get('/annonces/:id', showAnnounce);
-router.get('/annonces/:id/publish', index);
+router.get('/annonces/:id/publish', showAnnounce);
 router.get('/annonces/create', index);
 router.get('/login', index);
 router.get('/payment/token', index);
@@ -41,13 +41,15 @@ router.post('/api/share-announce', shareAnnounce);
 app.use(router.routes());
 
 function *index() {
-    yield this.render('index', { context: JSON.stringify([]) });
+    yield this.render('index', { context: JSON.stringify({announces: []}) });
 }
 
 function *showAnnounce() {
-    var announce = [];
+    var announces = yield knex.select('*')
+        .from('announces')
+        .where({uuid: this.params.id})
 
-    yield this.render('index', { context: JSON.stringify(announce) });
+    yield this.render('index', { context: JSON.stringify({announces: announces}) });
 }
 
 function *createAccount() {

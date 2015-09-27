@@ -14,7 +14,13 @@ module.exports = React.createClass({
     mixins: [addons.LinkedStateMixin, Router.Navigation ],
 
     getInitialState: function () {
-        return {};
+        return {
+            product_type: "Confiture de Mirabelle",
+            pickup_location: "Paris 10 rue Bichat",
+            farm_location: "Maizière-les-vics",
+            pickup_time: "Lundi 30 novembre",
+            description: "Ma grand-mère a fait des tonnes de confitures avec les mirabelles de son verger, miam.",
+        };
     },
 
     submit: function (e) {
@@ -47,7 +53,7 @@ module.exports = React.createClass({
                             <label>Date de retrait</label><input type='text' valueLink={this.linkState('pickup_time')} />
                         </p>
                         <p>
-                            <label>Quantité</label><input className="quantity" type='text' valueLink={this.linkState('quantity')} />
+                            <label>Quantité Maximum</label><input className="quantity" type='text' valueLink={this.linkState('quantity')} />
                             <input className="quantity-unit" type='text' valueLink={this.linkState('quantityunit')} />
                         </p>
                         <p>
