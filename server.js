@@ -73,21 +73,32 @@ function *listAnnounces() {
 
 function *shareAnnounce() {
     var announceUuid = this.request.body.announceUuid;
-    console.log('uuid', announceUuid);
     var emails = this.request.body.emails;
     var message = this.request.body.message;
+
+    var announce = yield knex.select('pelicabname', 'pelicabemail')
+        .from('announces')
+        .where({uuid: announceUuid})
+        .then(function (rows) {
+            return _.map(rows, function (row) {
+                return {pelicabname: row.pelicabname, pelicabemail: row.pelicabemail};
+            })[0];
+        });
+
     var shasum = crypto.createHash('sha1');
     shasum.update(message);
     var token = shasum.digest('hex');
     var url = process.env.APP_URL + '/annonces/' + announceUuid + '?token=' + token;
+
     var compiledTemplate = _.template(
-        "Bonjour,\n\nUne annonce Peligourmet viens d'être paratgée avec vous.\n\nVoici le message de l'annonceur:\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
+        "Bonjour,\n\n<%= pelicabname %> vient de partager une annonce avec vous.\n\nVoici son message :\n\n-----------------------------------------------------------------------\n<%= message %>\n-----------------------------------------------------------------------\n\nPour voir l'annonce et reserver, visitez <%= url%>"
     );
+
     var email = {
         from: 'Peligourmet <peligourmetparis@gmail.com>',
         to: emails.join(','),
         subject: 'Nouvelle annonce',
-        text: compiledTemplate({ message: message, url: url }),
+        text: compiledTemplate({ message: message, url: url, pelicabname: announce.pelicabname}),
     };
     mailgun.messages().send(email, function (error, info) {
         if (error) {
