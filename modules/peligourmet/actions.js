@@ -7,8 +7,13 @@ module.exports = {
     createAnnonce: createAnnonce,
     fetchAnnonces: fetchAnnonces,
     publishAnnonce: publishAnnonce,
+    initializeAnnonces: initializeAnnonces,
     login: login,
 };
+
+function initializeAnnonces(annonces) {
+    reactor.dispatch(actionTypes.RECEIVE_ANNONCES, annonces);
+}
 
 function createAnnonce(annonce) {
     reactor.dispatch(actionTypes.CREATE_ANNONCE, annonce);

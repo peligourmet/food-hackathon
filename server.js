@@ -27,7 +27,7 @@ app.use(bodyParser());
 
 router.get('/', index);
 router.get('/annonces', index);
-router.get('/annonces/:id', index);
+router.get('/annonces/:id', showAnnounce);
 router.get('/annonces/:id/publish', index);
 router.get('/annonces/create', index);
 router.get('/login', index);
@@ -42,6 +42,14 @@ app.use(router.routes());
 
 function *index() {
     yield this.render('index');
+}
+
+function *showAnnounce() {
+    var announce = yield knex.select('*')
+        .from('announces')
+        .where({uuid: this.params.id})
+
+    yield this.render('index', { context: JSON.stringify(announce) });
 }
 
 function *createAccount() {
