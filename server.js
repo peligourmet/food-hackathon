@@ -41,7 +41,7 @@ router.post('/api/share-announce', shareAnnounce);
 app.use(router.routes());
 
 function *index() {
-    yield this.render('index');
+    yield this.render('index', { context: JSON.stringify([]) });
 }
 
 function *showAnnounce() {
